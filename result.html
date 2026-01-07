@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GLA University | Result</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background:#f3f6fb;
+}
+
+/* ================= TOP BAR ================= */
+.topbar{
+    height:64px;
+    background:linear-gradient(to right,#63b9ff,#21c7d9);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    color:white;
+}
+
+.top-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.top-left img{
+    height:36px;
+}
+
+.top-center{
+    font-size:16px;
+}
+
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.circle{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.25);
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+    position:fixed;
+    top:64px;
+    left:0;
+    width:260px;
+    height:calc(100vh - 64px);
+    background:white;
+    padding:22px 18px;
+    box-shadow:2px 0 10px rgba(0,0,0,0.08);
+    overflow-y:auto;
+}
+
+.section-title{
+    color:#2f5cff;
+    font-weight:600;
+    margin:12px 0;
+    font-size:14px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    padding:9px 0;
+    font-size:14px;
+    color:#444;
+}
+
+/* ================= MAIN ================= */
+.main{
+    margin-left:280px;
+    margin-top:64px;
+    padding:25px 30px;
+}
+
+.breadcrumb{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#2f5cff;
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+.sem{
+    color:#2f5cff;
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+/* ================= TABLE ================= */
+.table-wrap{
+    background:white;
+    border-radius:10px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+    padding:20px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+}
+
+thead{
+    background:linear-gradient(to right,#55b6ff,#1fcad9);
+    color:white;
+}
+
+th, td{
+    padding:10px;
+    border:1px solid #e1e5ec;
+    text-align:center;
+}
+
+td:nth-child(3){
+    text-align:left;
+}
+
+/* GRADE BADGES */
+.grade{
+    padding:4px 10px;
+    border-radius:6px;
+    color:white;
+    font-weight:600;
+    font-size:13px;
+    display:inline-block;
+}
+
+.A{background:#2ecc71;}
+.Aplus{background:#27ae60;}
+.B{background:#58d68d;}
+.Bplus{background:#48c9b0;}
+.C{background:#52be80;}
+.F{background:#e74c3c;}
+.O{background:#1abc9c;}
+
+/* ================= SUMMARY ================= */
+.summary{
+    margin-top:20px;
+}
+
+.summary table{
+    font-weight:600;
+}
+
+.summary th{
+    background:linear-gradient(to right,#55b6ff,#1fcad9);
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+    <div class="top-left">
+        <img src="logo.png">
+        <strong>GLA University</strong>
+    </div>
+
+    <div class="top-center">
+        Mathura Campus | B.Tech. - CS : II Sem.
+    </div>
+
+    <div class="top-right">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+</div>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="section-title">ACADEMIC</div>
+    <ul class="menu">
+        <li>Dashboard</li>
+        <li>Registration</li>
+        <li>Main Account</li>
+        <li>Policies</li>
+        <li>My Advisor</li>
+        <li>Academic Feedbacks</li>
+        <li>Fee Details</li>
+        <li>Value Added Course</li>
+        <li>Feedback Panel</li>
+        <li>GLAMS Notification</li>
+    </ul>
+
+    <div class="section-title">EXAM</div>
+    <ul class="menu">
+        <li><strong>View Result</strong></li>
+        <li>CPI Calculator</li>
+        <li>Online Exam</li>
+    </ul>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <div class="breadcrumb" onclick="openProgress()" style="cursor:pointer;">
+    ➜ Progress Graph
+</div>
+
+    <div class="sem">➜ Semester - I (2025-26)</div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Code</th>
+                    <th>Subject Name</th>
+                    <th>Grade</th>
+                    <th>GP</th>
+                    <th>Credit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1</td><td>BCHS 0002</td><td>SCIENCE FOR ENGINEERS II</td><td><span class="grade Aplus">C</span></td><td>5</td><td>2</td></tr>
+                <tr><td>2</td><td>BCSC 0016</td><td>EMERGING TECHNOLOGY-I</td><td><span class="grade Aplus">B</span></td><td>6</td><td>2</td></tr>
+                <tr><td>3</td><td>BECG 0010</td><td>DIGITAL ELECTRONICS</td><td><span class="grade F">F</span></td><td>0</td><td>3</td></tr>
+                <tr><td>9</td><td>BELH 0811</td><td>ENGINEERING CALCULUS</td><td><span class="grade Aplus">B+</span></td><td>7</td><td>2</td></tr>
+                <tr><td>5</td><td>APFJ 0001</td><td>FIELD PROJECT</td><td><span class="grade Aplus">A+</span></td><td>9</td><td>1</td></tr>
+                <tr><td>6</td><td>BCHS 0802</td><td>ENGINEERING SCIENCE LAB</td><td><span class="grade Aplus">A</span></td><td>8</td><td>1</td></tr>
+                <tr><td>7</td><td>BCSG 0802</td><td>COMPUTER PROGRAMMING - I</td><td><span class="grade Aplus">A</span></td><td>8</td><td>4</td></tr>
+                <tr><td>8</td><td>BECG 0808</td><td>DIGITAL ELECTRONICS LAB</td><td><span class="grade Aplus">O</span></td><td>10</td><td>1</td></tr>
+                <tr><td>9</td><td>BELH 0811</td><td>ENGLISH COMMUNICATION SKILLS I</td><td><span class="grade Aplus">B+</span></td><td>7</td><td>2</td></tr>
+                <tr><td>10</td><td>BMEG 1806</td><td>ENGINEERING GRAPHICS AND CAD LAB</td><td><span class="grade Aplus">B+</span></td><td>7</td><td>1</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="summary">
+        <table>
+            <tr>
+                <th>STC</th>
+                <th>SGP</th>
+                <th>SPI</th>
+                <th>CC</th>
+                <th>CGP</th>
+                <th>CPI</th>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>102</td>
+                <td>7.29</td>
+                <td>14</td>
+                <td>102</td>
+                <td>7.29</td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+<script>
+function openProgress(){
+    window.location.href = "progress.html";
+}
+</script>
+
+</body>
+</html>

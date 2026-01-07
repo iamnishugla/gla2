@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GLA University | Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* ================= TOP BAR ================= */
+.topbar{
+    height:64px;
+    background:linear-gradient(to right,#5bb8ff,#2bb4d6);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 25px;
+    color:white;
+}
+
+.top-left{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.top-left img{
+    height:38px;
+}
+
+.top-center{
+    font-size:16px;
+    opacity:0.95;
+}
+
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.circle{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.25);
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+    position:fixed;
+    top:64px;
+    left:0;
+    width:260px;
+    height:calc(100vh - 64px);
+    background:white;
+    padding:25px 20px;
+    box-shadow:2px 0 10px rgba(0,0,0,0.08);
+}
+
+.section-title{
+    color:#3a63ff;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.menu{
+    list-style:none;
+    margin-bottom:25px;
+}
+
+.menu li{
+    padding:10px 0;
+    color:#444;
+    font-size:15px;
+    cursor:pointer;
+}
+
+/* ================= MAIN CONTENT ================= */
+.main{
+    margin-left:280px;
+    margin-top:64px;
+    padding:30px;
+}
+
+.main h2{
+    text-align:center;
+    color:#3a63ff;
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:22px;
+    border-radius:14px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+.card-header{
+    display:flex;
+    gap:15px;
+}
+
+.card img{
+    width:85px;
+    height:95px;
+    border-radius:8px;
+    object-fit:cover;
+}
+
+.card h4{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.card p{
+    font-size:14px;
+    color:#555;
+    margin-bottom:4px;
+}
+
+.more{
+    margin-top:12px;
+    color:#3a63ff;
+    font-size:14px;
+    cursor:pointer;
+}
+
+/* ================= NOTIFICATION TAB ================= */
+.notify{
+    position:fixed;
+    right:-40px;
+    top:50%;
+    transform:rotate(-90deg);
+    background:#3a63ff;
+    color:white;
+    padding:10px 20px;
+    border-radius:6px;
+    font-size:14px;
+}
+/* ================= MAIN ACCOUNT MODAL ================= */
+.acc-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.55);
+    z-index:9999;
+}
+
+.acc-box{
+    width:90%;
+    max-width:1200px;
+    background:white;
+    margin:60px auto;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.acc-header{
+    padding:15px 20px;
+    border-bottom:1px solid #ddd;
+    font-weight:600;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.close{
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* TOP INFO */
+.acc-top{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    padding:20px;
+}
+
+.info-card{
+    background:#d7f1ff;
+    padding:20px;
+    border-radius:8px;
+    color:#004b75;
+    font-weight:500;
+}
+
+/* MY DETAILS */
+.my-details{
+    border:2px solid #44c767;
+    margin:20px;
+    border-radius:8px;
+    padding:20px;
+    position:relative;
+}
+
+.tag{
+    position:absolute;
+    top:-14px;
+    left:15px;
+    background:#44c767;
+    color:white;
+    padding:6px 15px;
+    font-weight:600;
+    border-radius:4px;
+}
+
+.details-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    margin-top:15px;
+}
+
+.details-grid p{
+    margin:8px 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<div class="topbar">
+    <div class="top-left">
+        <img src="logo.png">
+        <strong>GLA University</strong>
+    </div>
+
+    <div class="top-center">
+        Mathura Campus | B.Tech. - CS : II Sem.
+    </div>
+
+    <div class="top-right">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+</div>
+
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar">
+    <div class="section-title">ACADEMIC</div>
+    <ul class="menu">
+        <li>Dashboard</li>
+        <li>Registration</li>
+        <li onclick="openAccount()" style="cursor:pointer;">Main Account</li>
+
+        <li>Policies</li>
+        <li>My Advisor</li>
+        <li>Academic Feedbacks</li>
+        <li>Fee Details</li>
+        <li>Value Added Course</li>
+        <li>Feedback Panel</li>
+        <li>GLAMS Notification</li>
+    </ul>
+
+    <div class="section-title">EXAM</div>
+    <ul class="menu">
+        <li onclick="openResult()" style="cursor:pointer;">View Result</li>
+
+        <li>CPI Calculator</li>
+        <li>Online Exam</li>
+    </ul>
+</div>
+
+<!-- ================= MAIN ================= -->
+<div class="main">
+    <h2>Academic Details</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-header">
+                <img src="emerging.png">
+                <div>
+                    <h4>BCSC 0017 (Theory)</h4>
+                    <p>Emerging Technology-II</p>
+                    <p>Syed Anas Ansar</p>
+                </div>
+            </div>
+            <div class="more">More Details →</div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="electrical.png">
+                <div>
+                    <h4>BEEG 2002 (Theory)</h4>
+                    <p>Electrical & Electronics</p>
+                    <p>Mayank Goyal</p>
+                </div>
+            </div>
+            <div class="more">More Details →</div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="matrices.png">
+                <div>
+                    <h4>BMAS 1105 (Theory)</h4>
+                    <p>Matrices & Laplace</p>
+                    <p>Mohit Kumar</p>
+                </div>
+            </div>
+            <div class="more">More Details →</div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="science.png">
+                <div>
+                    <h4>BPHS 0101 (Theory)</h4>
+                    <p>Science for Engineers-I</p>
+                    <p>Sukriti</p>
+                </div>
+            </div>
+            <div class="more">More Details →</div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="mechanical.png">
+                <div>
+                    <h4>BCSC 1511 (Practical)</h4>
+                    <p>Object Oriented Programming</p>
+                    <p>Lukesh Gaydhane</p>
+                </div>
+            </div>
+            <div class="more">More Details →</div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <img src="electrical.png">
+                <div>
+                    <h4>BEEG 1800 (Practical)</h4>
+                    <p>Electrical Engineering Lab</p>
+                    <p>Mayank Goyal</p>
+                </div>
+            </div>
+            <div class="more">More Details →</div>
+        </div>
+
+    </div>
+</div>
+
+<div class="notify">Notification</div>
+<script>
+function openResult(){
+    window.location.href = "result.html";
+}
+</script>
+<!-- ================= MAIN ACCOUNT MODAL ================= -->
+<div id="accountModal" class="acc-modal">
+
+    <div class="acc-box">
+
+        <!-- HEADER -->
+        <div class="acc-header">
+            <span>PERSONAL DETAILS</span>
+            <span class="close" onclick="closeAccount()">✕</span>
+        </div>
+
+        <!-- TOP INFO CARDS -->
+        <div class="acc-top">
+
+            <div class="info-card">
+                <p><b>University Roll Number</b><br>12515000760</p>
+                <p><b>Enrollment Number</b><br>1500251433</p>
+            </div>
+
+            <div class="info-card">
+                <p><b>Fortigate ID</b><br>karnavgoyal50145</p>
+                <p><b>Password</b><br>z846wb*GLA</p>
+            </div>
+
+            <div class="info-card">
+                <p><b>Email</b><br>karnav.goyal_cs25@gla.ac.in</p>
+                <p><b>Password</b><br>Father Mob. No. (Ist Time)</p>
+            </div>
+
+        </div>
+
+        <!-- MY DETAILS -->
+        <div class="my-details">
+
+            <div class="tag">My Details</div>
+
+            <div class="details-grid">
+
+                <div>
+                    <p><b>Name</b> : Karnav Goyal</p>
+                    <p><b>DOB</b> : 20.05.2007</p>
+                    <p><b>Gender</b> : Male</p>
+                    <p><b>Aadhar No</b> : 892831894316</p>
+                    <p><b>Category</b> : GEN</p>
+                    <p><b>Personal Email</b> : karnavgoyal2@gmail.com</p>
+                    <p><b>ABC ID</b> : 865839979243</p>
+                </div>
+
+                <div>
+                    <p><b>Univ. Roll</b> : 12515000760</p>
+                    <p><b>File No</b> : 25-15001433</p>
+                    <p><b>Course</b> : B.Tech. (CSE)</p>
+                    <p><b>Library Code</b> : 25BCS1466</p>
+                    <p><b>Contact No</b> : 7668925941</p>
+                    <p><b>Official Email</b> : karnav.goyal_cs25@gla.ac.in</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+function openAccount(){
+    document.getElementById("accountModal").style.display="block";
+}
+function closeAccount(){
+    document.getElementById("accountModal").style.display="none";
+}
+</script>
+
+</body>
+</html>
